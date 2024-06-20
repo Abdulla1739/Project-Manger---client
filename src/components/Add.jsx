@@ -7,9 +7,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addProjectAPI } from "../service/AllAPI";
 import { addResponseContext } from "../contexts/ContextAPI";
+import { useNavigate } from "react-router-dom";
 
 const Add = () => {
   const {addResponse,setAddResponse} = useContext(addResponseContext)
+  const navigate = useNavigate()
   const [show, setShow] = useState(false);
   const [preview, setPreview] = useState(upload);
 
@@ -80,8 +82,10 @@ const Add = () => {
           console.log(result);
           if (result.status == 200) {
             handleClose();
-            toast.success("Project added successfully");
+            // toast.success("Project added successfully");
             setAddResponse(result)
+            navigate('/dashboard')
+
           } else {
             toast.warning(result.response.data);
           }

@@ -1,3 +1,3 @@
-const serverURL ="https://project-manager-server-rybs.onrender.com"
+const serverURL ="http://localhost:3000"
 
 export default serverURL
